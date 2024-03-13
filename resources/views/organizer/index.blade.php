@@ -1,0 +1,42 @@
+{{-- 
+    BCS3453 [PROJECT]-SEMESTER 2324/1
+    Student ID: CB21032
+    Student Name: MUHAMMAD BIN MOKHTAR 
+--}}
+
+@extends('organizer.organizer-master')
+
+@section('content')
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 text-gray-900">
+                <h1 class="text-3xl">Welcome {{ Auth::user()->name }}</h1>
+                <br>
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                @if (session()->has('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+             
+                <p>Great to see you here.</p><br>
+                <a href="{{ route('organizer.create_event') }}" class="btn btn-secondary btn-block">Create Event</a>
+                <a href="{{ route('organizer.event_list') }}" class="btn btn-secondary btn-block">Event List</a><br><br>
+              
+                <div class="mt-4">
+                    <p>Name: {{ Auth::user()->name }}</p>
+                    <p>Email: {{ Auth::user()->email }}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
